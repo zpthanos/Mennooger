@@ -1,136 +1,34 @@
 <?php
-// includes/classes/class-pm-partner-form.php
+// includes/classes/class-pm-interest-form.php
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
 /**
- * Class PM_Partner_Form
+ * Class PM_Interest_Form
  *
- * Renders and processes the Partner form.
+ * Renders and processes the “Interest” form.
  */
-class PM_Partner_Form {
+class PM_Interest_Form {
 
     /** Submission type */
-    const SUBMISSION_TYPE = 'partner';
+    const SUBMISSION_TYPE = 'interest';
 
-    /** AJAX action for partner form */
-    const AJAX_ACTION = 'pm_submit_partner';
+    /** AJAX action */
+    const AJAX_ACTION = 'pm_submit_interest';
 
-    /** Field definitions */
-    protected $fields = [
-        'partner_name'   => [
-            'type'        => 'text',
-            'label'       => __( 'Επωνυμία συνεργάτη', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΕ', 'wc-pm' ),
-        ],
-        'partner_afm'    => [
-            'type'        => 'text',
-            'label'       => __( 'ΑΦΜ συνεργάτη', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ 999123456', 'wc-pm' ),
-            'validate'    => 'afm',
-        ],
-        'partner_email'  => [
-            'type'        => 'email',
-            'label'       => __( 'Email συνεργάτη', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ papadopoulos@gmail.com', 'wc-pm' ),
-        ],
-        'partner_phone'  => [
-            'type'        => 'tel',
-            'label'       => __( 'Τηλέφωνο συνεργάτη', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ 6991234567', 'wc-pm' ),
-        ],
-        'company_name'   => [
-            'type'        => 'text',
-            'label'       => __( 'Επωνυμία επιχείρησης', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ Ελιά και Διόσμος', 'wc-pm' ),
-        ],
-        'company_afm'    => [
-            'type'        => 'text',
-            'label'       => __( 'ΑΦΜ επιχείρησης', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ 999123456', 'wc-pm' ),
-            'validate'    => 'afm',
-        ],
-        'company_type'   => [
-            'type'        => 'select',
-            'label'       => __( 'Είδος επιχείρησης', 'wc-pm' ),
-            'required'    => false,
-            'choices'     => [
-                ''            => __( 'Επιλέξτε', 'wc-pm' ),
-                'Εστιατόριο'  => 'Εστιατόριο',
-                'Καφέ'        => 'Καφέ',
-                'Ξενοδοχείο'  => 'Ξενοδοχείο',
-                'Beach Bar'   => 'Beach Bar',
-                'Πιτσαρία'    => 'Πιτσαρία',
-                'Fast Food'   => 'Fast Food',
-                'Bar - Club'  => 'Bar - Club',
-                'Άλλο'        => 'Άλλο',
-            ],
-        ],
-        'company_city'   => [
-            'type'        => 'text',
-            'label'       => __( 'Έδρα επιχείρησης', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ Αθήνα', 'wc-pm' ),
-        ],
-        'contact_fname'  => [
-            'type'        => 'text',
-            'label'       => __( 'Όνομα υπεύθυνου', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ Ιωάννης', 'wc-pm' ),
-        ],
-        'contact_lname'  => [
-            'type'        => 'text',
-            'label'       => __( 'Επώνυμο υπεύθυνου', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ Παπαδόπουλος', 'wc-pm' ),
-        ],
-        'contact_phone'  => [
-            'type'        => 'tel',
-            'label'       => __( 'Κινητό υπεύθυνου', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ 6991234567', 'wc-pm' ),
-        ],
-        'contact_pref'   => [
-            'type'        => 'radio',
-            'label'       => __( 'Τρόπος λήψης μηνυμάτων', 'wc-pm' ),
-            'required'    => false,
-            'choices'     => [
-                'SMS'      => 'SMS',
-                'Viber'    => 'Viber',
-                'WhatsApp' => 'WhatsApp',
-            ],
-        ],
-        'contact_email'  => [
-            'type'        => 'email',
-            'label'       => __( 'Email υπεύθυνου', 'wc-pm' ),
-            'required'    => true,
-            'placeholder' => __( 'π.χ papadopoulos@gmail.com', 'wc-pm' ),
-        ],
-        'consent'        => [
-            'type'        => 'checkbox',
-            'label'       => __( 'Συμφωνώ ότι…', 'wc-pm' ),
-            'required'    => true,
-        ],
-        'hp_1'           => [
-            'type'     => 'hidden',
-            'required' => false,
-        ],
-        'hp_2'           => [
-            'type'     => 'hidden',
-            'required' => false,
-        ],
-    ];
+    /** Field definitions – populated in constructor */
+    protected $fields = [];
 
+    /**
+     * PM_Interest_Form constructor.
+     */
     public function __construct() {
-        // Enqueue assets and localize
+        // Move field initialisation here (so no $this usage in a property)
+        $this->fields = $this->get_default_fields();
+
+        // Asset enqueue/localise
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 
         // AJAX handlers
@@ -138,56 +36,94 @@ class PM_Partner_Form {
         add_action( 'wp_ajax_'        . self::AJAX_ACTION, [ $this, 'handle_submission' ] );
     }
 
-    /** Enqueue front-end CSS/JS for forms */
+    /**
+     * Default field map – mirrors Partner-form style.
+     *
+     * @return array
+     */
+    protected function get_default_fields() {
+        return [
+            'full_name'   => [
+                'type'        => 'text',
+                'label'       => __( 'Ονοματεπώνυμο', 'wc-pm' ),
+                'required'    => true,
+                'placeholder' => __( 'π.χ Ιωάννης Παπαδόπουλος', 'wc-pm' ),
+            ],
+            'email'       => [
+                'type'        => 'email',
+                'label'       => __( 'Email', 'wc-pm' ),
+                'required'    => true,
+                'placeholder' => __( 'π.χ example@email.com', 'wc-pm' ),
+            ],
+            'phone'       => [
+                'type'        => 'tel',
+                'label'       => __( 'Τηλέφωνο', 'wc-pm' ),
+                'required'    => false,
+                'placeholder' => __( 'π.χ 6991234567', 'wc-pm' ),
+            ],
+            'message'     => [
+                'type'        => 'textarea',
+                'label'       => __( 'Μήνυμα Ενδιαφέροντος', 'wc-pm' ),
+                'required'    => true,
+                'placeholder' => __( 'Γράψτε το μήνυμά σας…', 'wc-pm' ),
+            ],
+            'consent'     => [
+                'type'     => 'checkbox',
+                'label'    => __( 'Συμφωνώ με τους όρους', 'wc-pm' ),
+                'required' => true,
+            ],
+            'hp_1'        => [
+                'type'     => 'hidden',
+                'required' => false,
+            ],
+        ];
+    }
+
+    /** Enqueue front-end assets */
     public function enqueue_assets() {
         wp_enqueue_style( 'wc-pm-frontend', WC_PM_URL . 'assets/css/frontend.css', [], WC_PM_VERSION );
         wp_enqueue_script( 'wc-pm-forms',   WC_PM_URL . 'assets/js/frontend-forms.js', [], WC_PM_VERSION, true );
-        wp_localize_script( 'wc-pm-forms', 'PM_Partner_Ajax', [
+        wp_localize_script( 'wc-pm-forms', 'PM_Interest_Ajax', [
             'ajax_url' => admin_url( 'admin-ajax.php' ),
             'action'   => self::AJAX_ACTION,
-            'nonce'    => wp_create_nonce( 'pm_partner_nonce' ),
+            'nonce'    => wp_create_nonce( 'pm_interest_nonce' ),
         ] );
     }
 
-    /** Shortcode callback */
-    public function render_partner_form( $atts ) {
+    /** Shortcode renderer */
+    public function render_interest_form( $atts ) {
         ob_start();
-        include WC_PM_PATH . 'templates/frontend/form-partner.php';
+        include WC_PM_PATH . 'templates/frontend/form-interest.php';
         return ob_get_clean();
     }
 
-    /** Handle AJAX form submission */
+    /** AJAX submission handler */
     public function handle_submission() {
-        check_ajax_referer( 'pm_partner_nonce', 'nonce' );
+        check_ajax_referer( 'pm_interest_nonce', 'nonce' );
+
         $data = [];
         foreach ( $this->fields as $key => $cfg ) {
             $val = isset( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : '';
+
             if ( $cfg['required'] && empty( $val ) ) {
                 wp_send_json_error( [ 'field' => $key, 'message' => __( 'Required field', 'wc-pm' ) ] );
-            }
-            // Custom validations
-            if ( ! empty( $cfg['validate'] ) && $cfg['validate'] === 'afm' ) {
-                if ( ! pm_validate_afm( $val ) ) {
-                    wp_send_json_error( [ 'field' => $key, 'message' => __( 'Invalid ΑΦΜ', 'wc-pm' ) ] );
-                }
             }
             $data[ $key ] = $val;
         }
 
-        // Honeypots
-        if ( ! empty( $_POST['hp_1'] ) || ! empty( $_POST['hp_2'] ) ) {
+        // Honeypot
+        if ( ! empty( $_POST['hp_1'] ) ) {
             wp_send_json_error( [ 'message' => 'Spam detected' ], 400 );
         }
 
-        // Save submission
+        // Store submission
         $submission_id = pm_create_submission( self::SUBMISSION_TYPE, $data );
 
-        // Fire hook for emails, logging etc.
-        do_action( 'pm_after_partner_form_submission', $data, $submission_id );
+        do_action( 'pm_after_interest_form_submission', $data, $submission_id );
 
         wp_send_json_success( [ 'submission_id' => $submission_id ] );
     }
 }
 
-// Instantiate
-new PM_Partner_Form();
+// Instantiate immediately
+new PM_Interest_Form();
