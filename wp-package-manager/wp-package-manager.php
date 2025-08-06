@@ -45,6 +45,7 @@ require_once WC_PM_PATH . 'includes/classes/class-pm-logger.php';
 // Include AJAX & admin-post handlers
 require_once WC_PM_PATH . 'includes/class-pm-ajax-handlers.php';
 
+
 // Include all other class files
 foreach ( glob( WC_PM_PATH . 'includes/classes/class-pm-*.php' ) as $file ) {
     if ( ! in_array( basename( $file ), [ 'class-pm-email-templates.php', 'class-pm-logger.php' ], true ) ) {
