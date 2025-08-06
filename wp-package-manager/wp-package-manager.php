@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Mennoo Manager
+ * Plugin Name:       wp-package-manager
  * Plugin URI:        https://github.com/zpthanos/Mennooger.git
  * Description:       Package manager - Διαχείριση πακέτων / πληρωμών
  * Version:           0.0.1
