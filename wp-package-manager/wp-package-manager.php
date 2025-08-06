@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name:       WP Package Manager
- * Plugin URI:        https://example.com/wp-package-manager
- * Description:       Comprehensive package manager & pricing solution with WooCommerce integration.
- * Version:           1.0.0
- * Author:            Your Name
+ * Plugin Name:       Mennoo Manager
+ * Plugin URI:        https://github.com/zpthanos/Mennooger.git
+ * Description:       Package manager - Διαχείριση πακέτων / πληρωμών
+ * Version:           0.0.1
+ * Author:            Entercity
  * Author URI:        https://example.com
  * Text Domain:       wc-pm
  * Domain Path:       /languages
