@@ -72,17 +72,18 @@ function pm_validate_select( $value, array $choices, $required = false ) {
  * @param string $afm
  * @return bool
  */
-function pm_validate_afm( $afm ) {
-    $afm = preg_replace( '/\D/', '', wp_unslash( $afm ) );
-    if ( strlen( $afm ) !== 9 ) {
-        return false;
+if ( ! function_exists( 'pm_validate_afm' ) ) {
+    function pm_validate_afm( $afm ) {
+        $afm = preg_replace( '/\D/', '', wp_unslash( $afm ) );
+        if ( strlen( $afm ) !== 9 ) {
+            return false;
+        }
+        $sum = 0;
+        for ( $i = 0; $i < 8; $i++ ) {
+            $sum += intval( $afm[ $i ] ) * ( 1 << ( 8 - $i ) ); // 2^(8-i)
+        }
+        $mod   = $sum % 11;
+        $check = $mod % 10;
+        return $check === intval( $afm[8] );
     }
-    $sum = 0;
-    for ( $i = 0; $i < 8; $i++ ) {
-        // weight = 2^(8−i)
-        $sum += intval( $afm[ $i ] ) * ( 1 << ( 8 - $i ) );
-    }
-    $mod   = $sum % 11;
-    $check = $mod % 10;
-    return $check === intval( $afm[8] );
 }
