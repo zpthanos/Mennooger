@@ -1,10 +1,7 @@
 <?php
-/**
- * Template: Interest Form
- * Path: templates/frontend/form-interest.php
- *
- * Expects $this->fields defined in PM_Interest_Form.
- */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <form id="pm-interest-form" class="pm-form" method="post">
     <?php wp_nonce_field( 'pm_interest_nonce', 'nonce' ); ?>
