@@ -105,5 +105,3 @@ class PM_Interest_Form {
     }
 }
 
-// Instantiate
-new PM_Interest_Form();

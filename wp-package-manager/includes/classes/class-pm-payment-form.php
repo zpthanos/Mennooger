@@ -168,7 +168,5 @@ class PM_Payment_Form {
     }
 }
 
-/* Instantiate */
-new PM_Payment_Form();
 
 endif; // class guard

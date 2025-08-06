@@ -132,5 +132,3 @@ class PM_Payment_Gateway {
     }
 }
 
-// Instantiate
-new PM_Payment_Gateway();

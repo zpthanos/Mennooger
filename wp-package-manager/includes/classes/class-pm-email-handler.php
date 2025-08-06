@@ -188,5 +188,3 @@ class PM_Email_Handler {
     }
 }
 
-/* Bootstrap */
-new PM_Email_Handler();

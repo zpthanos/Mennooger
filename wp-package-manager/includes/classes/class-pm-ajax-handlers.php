@@ -123,4 +123,3 @@ class PM_Ajax_Handlers {
     }
 }
 
-new PM_Ajax_Handlers();

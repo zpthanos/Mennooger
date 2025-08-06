@@ -71,5 +71,3 @@ class PM_Form_Renderer {
     }
 }
 
-// Instantiate
-new PM_Form_Renderer();

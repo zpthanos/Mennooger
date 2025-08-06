@@ -196,7 +196,5 @@ class PM_Partner_Form {
     }
 }
 
-/* Instantiate immediately */
-new PM_Partner_Form();
 
 endif; // guard

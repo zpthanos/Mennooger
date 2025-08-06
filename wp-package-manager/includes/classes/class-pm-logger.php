@@ -86,5 +86,3 @@ class PM_Logger {
     }
 }
 
-// Instantiate the logger
-new PM_Logger();

@@ -163,5 +163,3 @@ class PM_AFM_Lookup {
     }
 }
 
-// Instantiate
-new PM_AFM_Lookup();

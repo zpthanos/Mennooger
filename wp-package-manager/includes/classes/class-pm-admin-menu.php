@@ -125,5 +125,3 @@ class PM_Admin_Menu {
     }
 }
 
-// Instantiate
-new PM_Admin_Menu();

@@ -149,5 +149,3 @@ class PM_Subscription_Wizard {
     }
 }
 
-// Instantiate
-new PM_Subscription_Wizard();

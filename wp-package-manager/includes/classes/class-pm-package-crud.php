@@ -164,5 +164,3 @@ class PM_Package_CRUD {
     }
 }
 
-// Instantiate
-new PM_Package_CRUD();

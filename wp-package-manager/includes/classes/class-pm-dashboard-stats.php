@@ -159,5 +159,3 @@ class PM_Dashboard_Stats {
     }
 }
 
-// Instantiate
-new PM_Dashboard_Stats();

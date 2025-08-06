@@ -218,5 +218,3 @@ class PM_Settings {
     }
 }
 
-// Instantiate
-new PM_Settings();

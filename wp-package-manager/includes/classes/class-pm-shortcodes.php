@@ -102,6 +102,3 @@ class PM_Shortcodes {
         return $wizard->render_subscription_wizard( $atts );
     }
 }
-
-// Instantiate
-new PM_Shortcodes();
