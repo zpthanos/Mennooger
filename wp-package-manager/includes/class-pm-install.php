@@ -1,5 +1,5 @@
 <?php
-// includes/class-pm-install.php
+
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
