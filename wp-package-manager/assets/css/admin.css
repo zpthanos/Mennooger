@@ -1,0 +1,111 @@
+/* assets/css/admin.css */
+
+/* Dashboard KPI cards */
+.pm-dashboard .pm-kpis {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.pm-dashboard .pm-kpi-card {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-left: 4px solid #f22869;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.pm-dashboard .pm-kpi-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: #f22869;
+}
+
+.pm-dashboard .pm-kpi-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Charts */
+#pm-sales-chart,
+#pm-popularity-chart {
+  max-width: 100%;
+  height: auto !important;
+  margin-bottom: 2rem;
+}
+
+/* Forms and messages */
+.pm-form-message {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  font-size: 0.95rem;
+}
+
+.pm-form-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.pm-form-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Plugin buttons */
+.pm-form .button.pm-submit-button,
+.button#pm-clear-stats {
+  background-color: #f22869;
+  border-color: #f22869;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.pm-form .button.pm-submit-button:hover,
+.button#pm-clear-stats:hover {
+  background-color: #000000;
+  border-color: #000000;
+  color: #ffffff;
+}
+
+/* List table tweaks */
+.wrap.pm-dashboard table.widefat th {
+  background-color: #f22869;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+.wrap.pm-dashboard table.widefat td,
+.wrap.pm-dashboard table.widefat th {
+  vertical-align: middle;
+}
+
+/* Settings pages */
+.wrap form .form-table th {
+  width: 20%;
+}
+
+.wrap form .form-table td {
+  width: 80%;
+}
+
+/* Trash page links */
+.templates-admin-trash a {
+  color: #f22869;
+}
+
+.templates-admin-trash a:hover {
+  color: #000000;
+}
+
+/* Admin responsive adjustments */
+@media (max-width: 782px) {
+  .pm-dashboard .pm-kpis {
+    flex-direction: column;
+  }
+}

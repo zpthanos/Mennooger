@@ -1,0 +1,312 @@
+/* assets/css/frontend.css */
+
+/* Global resets for plugin elements */
+.pm-form,
+.pm-package-archive,
+.pm-single-package,
+.pm-wizard {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: #000000;
+}
+
+/* Forms */
+.pm-form {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  border-radius: 4px;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.pm-form-field {
+  margin-bottom: 1rem;
+}
+
+.pm-form-field label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+.pm-form-field input[type="text"],
+.pm-form-field input[type="email"],
+.pm-form-field input[type="tel"],
+.pm-form-field input[type="number"],
+.pm-form-field select,
+.pm-form-field textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 1rem;
+}
+
+.pm-form-field input[type="checkbox"],
+.pm-form-field input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.required {
+  color: #f22869;
+}
+
+.pm-submit-button {
+  background-color: #f22869;
+  border: 1px solid #f22869;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.pm-submit-button:hover {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+/* Interest form message */
+.pm-form-message {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  font-size: 0.95rem;
+}
+
+.pm-form-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.pm-form-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Package archive – grid */
+.pm-package-archive.pm-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pm-package-archive.pm-grid .pm-package-item {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  flex: 1 1 calc(33.333% - 1rem);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pm-package-title {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: #f22869;
+}
+
+.pm-package-desc {
+  flex-grow: 1;
+  margin: 0.5rem 0;
+}
+
+.pm-package-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.pm-package-button {
+  align-self: flex-start;
+  background-color: #f22869;
+  border: 1px solid #f22869;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.pm-package-button:hover {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+/* Package archive – list */
+.pm-package-archive.pm-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pm-package-archive.pm-list .pm-package-item {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.pm-package-archive.pm-list .pm-package-title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #f22869;
+}
+
+.pm-package-archive.pm-list .pm-package-desc {
+  flex: 1 1 auto;
+  margin: 0 1rem;
+}
+
+.pm-package-archive.pm-list .pm-package-price {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+/* Single package */
+.pm-single-package {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.pm-single-package .pm-package-title {
+  font-size: 1.75rem;
+  margin-top: 0;
+  color: #f22869;
+}
+
+.pm-single-package .pm-package-description {
+  margin: 1rem 0;
+}
+
+.pm-single-package .pm-package-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.pm-single-package .pm-subscribe-button {
+  background-color: #f22869;
+  border: 1px solid #f22869;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.pm-single-package .pm-subscribe-button:hover {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+/* Pagination */
+.pm-pagination {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.pm-pagination .page-numbers {
+  display: inline-block;
+  margin: 0 0.25rem;
+  padding: 0.5rem 0.75rem;
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.pm-pagination .page-numbers.current {
+  background: #f22869;
+  color: #ffffff;
+  border-color: #f22869;
+}
+
+/* Wizard */
+.pm-wizard {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.pm-wizard-progress {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.pm-wizard-progress li {
+  flex: 1;
+  padding: 0.5rem;
+  text-align: center;
+  background: #f0f0f0;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.pm-wizard-progress li.active {
+  background: #f22869;
+  color: #ffffff;
+}
+
+.pm-wizard-step {
+  display: none;
+}
+
+.pm-wizard-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.pm-wizard-prev,
+.pm-wizard-next,
+.pm-wizard-submit {
+  background-color: #f22869;
+  border: 1px solid #f22869;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.pm-wizard-prev:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.pm-wizard-prev:hover:not(:disabled),
+.pm-wizard-next:hover,
+.pm-wizard-submit:hover {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pm-package-archive.pm-grid .pm-package-item {
+    flex: 1 1 100%;
+  }
+  .pm-wizard-progress {
+    flex-direction: column;
+  }
+}

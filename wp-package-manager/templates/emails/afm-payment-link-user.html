@@ -1,0 +1,12 @@
+<!-- templates/emails/afm-payment-link-user.html -->
+<!DOCTYPE html>
+<html lang="el">
+<head><meta charset="UTF-8"><title>Σύνδεσμος Πληρωμής</title></head>
+<body>
+  <p>Γεια σου {{user_name}},</p>
+  <p>Έχεις οφειλή <strong>{{amount_due}}</strong> για τη συνδρομή.</p>
+  <p>Προθεσμία: {{due_date}}</p>
+  <p>Κάνε κλικ εδώ για να πληρώσεις:</p>
+  <p><a href="{{payment_link}}">{{payment_link}}</a></p>
+</body>
+</html>

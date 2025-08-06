@@ -1,0 +1,10 @@
+<!-- templates/emails/afm-payment-link-admin.html -->
+<!DOCTYPE html>
+<html lang="el">
+<head><meta charset="UTF-8"><title>ΑΦΜ Πληρωμής (Admin)</title></head>
+<body>
+  <p>Ο χρήστης {{user_name}} (ΑΦΜ {{afm}}) έχει οφειλή <strong>{{amount_due}}</strong>.</p>
+  <p>Προθεσμία: {{due_date}}</p>
+  <p>Σύνδεσμος πληρωμής: <a href="{{payment_link}}">{{payment_link}}</a></p>
+</body>
+</html>

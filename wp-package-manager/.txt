@@ -1,0 +1,5 @@
+/assets/js/admin-packages.js
+    └─ AJAX-driven CRUD UI for the “Πακέτα” admin page (create/edit/delete via `PM_Packages_Ajax`)
+
+/assets/js/admin-dashboard.js
+    └─ (Already stubbed) can be extended here if needed for other admin screens
