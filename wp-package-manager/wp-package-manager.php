@@ -32,11 +32,11 @@ function wc_pm_load_textdomain() {
 add_action( 'plugins_loaded', 'wc_pm_load_textdomain' );
 
 // Include installer (dbDelta)
-require_once WC_PM_PATH . 'includes/class-pm-install.php';
+require_once WC_PM_PATH . 'includes/classes/class-pm-install.php';
 
 // Include core settings and shortcodes
-require_once WC_PM_PATH . 'includes/class-pm-settings.php';
-require_once WC_PM_PATH . 'includes/class-pm-shortcodes.php';
+require_once WC_PM_PATH . 'includes/classes/class-pm-settings.php';
+require_once WC_PM_PATH . 'includes/classes/class-pm-shortcodes.php';
 
 // Include email template loader and logger
 require_once WC_PM_PATH . 'includes/classes/class-pm-email-templates.php';
